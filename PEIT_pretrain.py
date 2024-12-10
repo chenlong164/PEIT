@@ -49,7 +49,6 @@ def main(args, config):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--checkpoint', default='')
-    # parser.add_argument('--data_path', default='./pretrain_50m.txt')
     parser.add_argument('--data_path', default='./data/SMILES_Des.csv')
     parser.add_argument('--resume', default=False, type=bool)
     parser.add_argument('--output_dir', default='./Pretrain')
