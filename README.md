@@ -15,3 +15,9 @@ Additionally, we have made part of the LLM instruction dataset publicly availabl
 * `llama3_lora_sft.yaml` runs PEIT-LLMs sft.
 ## Requirements
 Run `pip install -r requirements.txt` to install the required packages.
+## Code running
+Arguments can be passed with commands, or be edited manually in the running code.
+1. Pre-training
+    ```
+    python PEIT-pretrain.py --data_path ''
+    ```
