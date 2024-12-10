@@ -13,3 +13,5 @@ Additionally, we have made part of the LLM instruction dataset publicly availabl
 * `PEIT_pretrain.py/` runs PEIT-GEN pre-training.
 * `calc_property.py/` Codes for calculate the molecular properties.
 * `llama3_lora_sft.yaml` runs PEIT-LLMs sft.
+## Requirements
+Run `pip install -r requirements.txt` to install the required packages.
