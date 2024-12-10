@@ -19,5 +19,5 @@ Run `pip install -r requirements.txt` to install the required packages.
 Arguments can be passed with commands, or be edited manually in the running code.
 1. Pre-training
     ```
-    python PEIT-pretrain.py --data_path ''
+    python PEIT_pretrain.py --data_path ''
     ```
