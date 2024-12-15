@@ -5,7 +5,7 @@
 
 We have initially uploaded the PEIT-GEN pretraining code (PEIT_pretrain.py) along with the template generation code for various tasks in the Template_Generation module.
 
-***<ins>The PEIT-LLMs model checkpoint and data are too heavy to be included in this repo, and they can be found [here](https://huggingface.co/ccsalong/PEIT-LLMs-LLaMA3.1-8B/tree/main).<ins>***
+***<ins>The PEIT-LLMs model checkpoint and data are too heavy to be included in this repo, and they can be found [here](https://huggingface.co/ccsalong/PEIT-LLM-LLaMa3.1-8B/tree/main).<ins>***
 
 Additionally, we have made part of the LLM instruction dataset publicly available at https://pan.baidu.com/s/1VcFvrVHmjBZpL2L_QWt9TQ?pwd=vvts. The remaining code will be fully released in the near future.
 ## Files
