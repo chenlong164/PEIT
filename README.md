@@ -20,6 +20,10 @@ Arguments can be passed with commands, or be edited manually in the running code
     ```
     python PEIT_pretrain.py --data_path './data/pretrain_data.csv'
     ```
+2. SFT for LLM
+    ```
+    llamafactory-cli train llama3_lora_sft.yaml
+    ```
 ### Citation
 If you found our work useful, please cite:
 ```bibtex
