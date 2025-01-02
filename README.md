@@ -16,11 +16,11 @@ We have initially uploaded the PEIT-GEN pretraining code (PEIT_pretrain.py) alon
 Run `pip install -r requirements.txt` to install the required packages.
 ## Code running
 Arguments can be passed with commands, or be edited manually in the running code.
-1. Pre-training
+1. Pre-training for PEIT-GEN
     ```
     python PEIT_pretrain.py --data_path './data/pretrain_data.csv'
     ```
-2. SFT for LLM
+2. SFT for PEIT-LLM
     ```
     llamafactory-cli train llama3_lora_sft.yaml
     ```
