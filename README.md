@@ -1,8 +1,7 @@
 <h1 align="center">   PEIT: a framework for Property Enhanced Instruction Tuning for multi-task molecular generation with LLMs.  </h1>
 <h3 align="center">  </h3>
-The official GitHub repository for PEIT includes a multimodal molecular information generation model, PEIT-GEN, designed for synergistic comprehension of molecular structures, properties, and descriptions. Additionally, it features a specialized large language model, PEIT-LLM, fine-tuned through filling-based multitask template instruction tuning. 
+***<ins>The official GitHub repository for PEIT includes a multimodal molecular information generation model, PEIT-GEN, designed for synergistic comprehension of molecular structures, properties, and descriptions. Additionally, it features a specialized large language model, PEIT-LLM, fine-tuned through filling-based multitask template instruction tuning. Further details can be found in the following [arXiv paper](https://arxiv.org/abs/2412.18084)<ins>***
 
-***<ins>Further details can be found in the following [arXiv paper](https://arxiv.org/abs/2412.18084)<ins>***
 <div align=center><img src="https://github.com/user-attachments/assets/45fea8a2-908f-4bf5-88b1-926a9071e97c" width="100%" height="100%" /></div>
 We have initially uploaded the PEIT-GEN pretraining code (PEIT_pretrain.py) along with the template generation code for various tasks in the Template_Generation module.
 
