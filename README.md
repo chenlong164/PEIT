@@ -4,7 +4,7 @@ The official GitHub repository for PEIT includes a multimodal molecular informat
 
 ***<ins>Further details can be found in the following [arXiv paper](https://arxiv.org/abs/2412.18084)<ins>***
 
-<div align=center><img src="![image](https://github.com/user-attachments/assets/dde27b2c-0130-4dc6-905a-5c069c5d24ca)" width="100%" height="100%" /></div>
+<div align=center><img src="![image](https://github.com/user-attachments/assets/4224b90a-bdab-402b-bec7-96b64ac7b2f2)" width="100%" height="100%" /></div>
 We have initially uploaded the PEIT-GEN pretraining code (PEIT_pretrain.py) along with the template generation code for various tasks in the Template_Generation module.
 
 ***<ins>The PEIT-LLMs model checkpoint and data are too heavy to be included in this repo, and they can be found [here](https://huggingface.co/ccsalong/PEIT-LLM-LLaMa3.1-8B/tree/main).<ins>***
