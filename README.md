@@ -8,6 +8,7 @@ We have initially uploaded the PEIT-GEN pretraining code (PEIT_pretrain.py) alon
 <p style="text-align: center;">
   <img src="https://github.com/user-attachments/assets/4224b90a-bdab-402b-bec7-96b64ac7b2f2" width="100%" height="100%" />
 </p>
+
 ***<ins>The PEIT-LLMs model checkpoint and data are too heavy to be included in this repo, and they can be found [here](https://huggingface.co/ccsalong/PEIT-LLM-LLaMa3.1-8B/tree/main).<ins>***
 
 ***<ins>Additionally, we have made part of the LLM instruction dataset publicly available at [here](https://pan.baidu.com/s/1VcFvrVHmjBZpL2L_QWt9TQ?pwd=vvts).<ins>*** The remaining code will be fully released in the near future.
