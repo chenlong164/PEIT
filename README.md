@@ -42,8 +42,11 @@ Arguments can be passed with commands, or be edited manually in the running code
 | Model | R2 | RMSE |
 |-------|----|------|
 | PEIT-GEN | **0.910** | **0.169** |
-| PEIT-LLM-LLaMa3.1 | **0.613** | **13.918** |
-| PEIT-LLM-Qwen2.5 | **0.550** | **14.164** |
+
+#### Molecular Property Prediction on MoleculeNet 
+| Model | BBBP | BACE | Clintox | SIDER |
+|-------|------|------|---------|-------|
+| PEIT-GEN | **73.6±0.7** | **81.6±0.5** | **91.2±0.7** | **62.7±0.9** |
 
 #### Text-Based Molecule Generation
 | Model | BLEU | Validity | Levenshtein | MACCS FTS | Morgan FTS | RDKit FTS |
