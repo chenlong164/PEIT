@@ -39,9 +39,9 @@ Arguments can be passed with commands, or be edited manually in the running code
 | PEIT-LLM-Qwen2.5 | **0.422** | **0.314** | **0.468** | **0.535** | **0.361** | **0.477** |
 
 #### Molecular Property Prediction
-| Model | R2 | RMSE |
+| Model | RMSE | R2 |
 |-------|----|------|
-| PEIT-GEN | **0.910** | **0.169** |
+| PEIT-GEN | **0.169** | **0.910** |
 
 #### Molecular Property Prediction on MoleculeNet 
 | Model | BBBP | BACE | Clintox | SIDER |
