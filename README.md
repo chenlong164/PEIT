@@ -29,6 +29,34 @@ Arguments can be passed with commands, or be edited manually in the running code
     ```
     llamafactory-cli train llama3_lora_sft.yaml
     ```
+## Experimental Results
+
+#### Molecule Captioning
+| Model | BLEU-2 | BLEU-4 | METEOR | ROUGE-1 | ROUGE-2 | ROUGE-L |
+|-------|--------|--------|--------|---------|---------|---------|
+| PEIT-GEN | **0.598** | **0.534** | **0.676** | **0.700** | **0.582** | **0.653** |
+| PEIT-LLM-LLaMa3.1 | **0.461** | **0.356** | **0.502** | **0.569** | **0.396** | **0.505** |
+| PEIT-LLM-Qwen2.5 | **0.422** | **0.314** | **0.468** | **0.535** | **0.361** | **0.477** |
+
+#### Molecular Property Prediction
+| Model | R2 | RMSE |
+|-------|----|------|
+| PEIT-GEN | **0.910** | **0.169** |
+| PEIT-LLM-LLaMa3.1 | **0.613** | **13.918** |
+| PEIT-LLM-Qwen2.5 | **0.550** | **14.164** |
+
+#### Text-Based Molecule Generation
+| Model | BLEU | Validity | Levenshtein | MACCS FTS | Morgan FTS | RDKit FTS |
+|-------|------|---------|------------|----------|-----------|----------|
+| PEIT-LLM-LLaMa3.1 | **0.836** | **0.970** | **18.030** | **0.875** | **0.661** | **0.776** |
+| PEIT-LLM-Qwen2.5 | **0.810** | **0.950** | **21.133** | **0.832** | **0.619** | **0.735** |
+
+#### Multi-Constraint Molecule Generation
+| Model | RMSE | R2 |
+|-------|------|----|
+| PEIT-LLM-LLaMa3.1 | **14.212** | **0.613** |
+| PEIT-LLM-Qwen2.5 | **19.750** | **0.550** |
+
 ### Citation
 If you found our work useful, please cite:
 ```bibtex
