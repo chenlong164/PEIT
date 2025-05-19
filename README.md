@@ -1,5 +1,6 @@
 <h1 align="center">   PEIT: a framework for Property Enhanced Instruction Tuning for multi-task molecular generation with LLMs.  </h1>
-<h3 align="center">  </h3>
+
+
 ## Files
 * `Template_Generation/`: Contains the all the template filling code of four downstream tasks.
 * `PEIT_pretrain.py/` runs PEIT-GEN pre-training.
