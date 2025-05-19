@@ -21,16 +21,6 @@ def main(args, config):
 
     # model
     model = SDPFusionModel(config=config, tokenizerSP=tokenizer,tokenizerSD=tokenizerSD, loader_len=len(data_loader) // torch.cuda.device_count())
-    # if args.checkpoint:
-    #     checkpoint = torch.load(args.checkpoint, map_location='cpu')
-    #     _ = model.load_state_dict(checkpoint['state_dict'], strict=False)
-    # for param in model.parameters():
-    #     param.requires_grad = False
-
-    # for name, module in model.named_modules():
-    #     if name.startswith('Des_encoder') or name.startswith('Smiles_encoder') or name:
-    #         for param in module.parameters():
-    #             param.requires_grad = True
 
     for name, param in model.named_parameters():
         if param.requires_grad:
