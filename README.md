@@ -44,7 +44,7 @@ This repository introduces **PEIT**, a framework for **Property Enhanced Instruc
 Clone this repository and install dependencies:
 
 ```bash
-git clone https://github.com/your-repo/PEIT.git
+git clone https://github.com/chenlong164/PEIT.git
 cd PEIT
 pip install -r requirements.txt
 ```
