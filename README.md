@@ -6,6 +6,7 @@
 </p>
 
 <p align="center">
+  <a href="https://arxiv.org/abs/2412.18084"><img src="https://img.shields.io/badge/arXiv-2412.18084-b31b1b.svg" alt="arXiv"></a>
   <a href="https://huggingface.co/ccsalong/PEIT-LLM-LLaMa3.1-8B/tree/main"><img src="https://img.shields.io/badge/HuggingFace-PEIT--LLM-yellow" alt="HF Checkpoints"></a>
   <a href="https://pan.baidu.com/s/1VcFvrVHmjBZpL2L_QWt9TQ?pwd=vvts"><img src="https://img.shields.io/badge/Instruction%20Data-Baidu%20Pan-blue" alt="Baidu Link"></a>
 </p>
