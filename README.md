@@ -2,132 +2,123 @@
 
 # PEIT
 
-### Property Enhanced Instruction Tuning for Multi-Task Molecule Generation with Large Language Models
+**Property Enhanced Instruction Tuning**  
+for Multi-Task Molecule Generation with Large Language Models
 
-Official PyTorch implementation of **PEIT** — multimodal molecular generation with **PEIT-GEN** (structure · property · text) and **PEIT-LLM** (instruction-tuned LLMs).
-
-<br>
-
-<a href="https://www.ijcai.org/proceedings/2026/314"><img src="https://img.shields.io/badge/IJCAI--ECAI%202026-Accepted-2ea44f?style=for-the-badge" alt="IJCAI-ECAI 2026 Accepted"></a>
-<a href="https://www.ijcai.org/proceedings/2026/314"><img src="https://img.shields.io/badge/Paper-IJCAI--26%20Proceedings-0052cc?style=for-the-badge" alt="IJCAI Proceedings"></a>
-<a href="https://doi.org/10.24963/ijcai.2026/314"><img src="https://img.shields.io/badge/DOI-10.24963%2Fijcai.2026%2F314-007ec6?style=for-the-badge" alt="DOI"></a>
+<sub>Xuan Lin · Long Chen · Yile Wang · Yangyang Chen · Xiangxiang Zeng</sub>
 
 <br>
 
-<a href="https://arxiv.org/abs/2412.18084"><img src="https://img.shields.io/badge/arXiv-2412.18084-b31b1b.svg" alt="arXiv"></a>
-<a href="https://huggingface.co/ccsalong/PEIT-LLM-LLaMa3.1-8B/tree/main"><img src="https://img.shields.io/badge/🤗%20HuggingFace-PEIT--LLM-yellow" alt="HuggingFace"></a>
-<a href="https://www.modelscope.cn/models/wangcaiheahuang/PEIT-GEN"><img src="https://img.shields.io/badge/ModelScope-PEIT--GEN-624aff.svg" alt="ModelScope"></a>
-<a href="https://pan.baidu.com/s/1VcFvrVHmjBZpL2L_QWt9TQ?pwd=vvts"><img src="https://img.shields.io/badge/📦%20Instruction%20Data-Baidu%20Pan-blue" alt="Baidu Pan"></a>
+<a href="https://www.ijcai.org/proceedings/2026/314"><img alt="IJCAI-ECAI 2026 Accepted" src="https://img.shields.io/badge/IJCAI--ECAI_2026-Accepted-2ea44f?style=flat"></a>
+<a href="https://doi.org/10.24963/ijcai.2026/314"><img alt="DOI" src="https://img.shields.io/badge/DOI-10.24963%2Fijcai.2026%2F314-0066cc?style=flat"></a>
+<a href="https://arxiv.org/abs/2412.18084"><img alt="arXiv" src="https://img.shields.io/badge/arXiv-2412.18084-b31b1b?style=flat&logo=arxiv&logoColor=white"></a>
+<a href="https://huggingface.co/ccsalong/PEIT-LLM-LLaMa3.1-8B/tree/main"><img alt="Hugging Face" src="https://img.shields.io/badge/Hugging%20Face-PEIT--LLM-ffd21e?style=flat&logo=huggingface&logoColor=black"></a>
+<a href="https://www.modelscope.cn/models/wangcaiheahuang/PEIT-GEN"><img alt="ModelScope" src="https://img.shields.io/badge/ModelScope-PEIT--GEN-624aff?style=flat"></a>
+<a href="https://pan.baidu.com/s/1VcFvrVHmjBZpL2L_QWt9TQ?pwd=vvts"><img alt="Baidu Pan" src="https://img.shields.io/badge/Baidu%20Pan-Instruction%20Data-2932e1?style=flat"></a>
+
+<br>
+
+[Paper](https://www.ijcai.org/proceedings/2026/314) ·
+[DOI](https://doi.org/10.24963/ijcai.2026/314) ·
+[arXiv](https://arxiv.org/abs/2412.18084) ·
+[Models](#resources) ·
+[Quickstart](#quickstart) ·
+[Citation](#citation)
 
 </div>
 
-<br>
-
-> **🎉 Accepted at IJCAI—ECAI 2026 (Main Track)**  
-> Read the paper on the [official proceedings page](https://www.ijcai.org/proceedings/2026/314) · [https://doi.org/10.24963/ijcai.2026/314](https://doi.org/10.24963/ijcai.2026/314)
-
----
-
-## Overview
-
-| | |
-| :--- | :--- |
-| **PEIT-GEN** | Pretrains alignment among SMILES, natural-language descriptions, and **53 RDKit properties** (contrastive + MLM / fusion). Code: `PEIT-GEN/PEIT_GEN.py`. |
-| **PEIT-LLM** | Instruction-tunes an LLM (e.g. LLaMA 3.1) for molecular understanding and generation via [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory). Configs: `PEIT-LLM/`. |
+> [!IMPORTANT]
+> **Accepted at IJCAI—ECAI 2026 (Main Track).**  
+> Official paper: [proceedings/2026/314](https://www.ijcai.org/proceedings/2026/314) · [doi.org/10.24963/ijcai.2026/314](https://doi.org/10.24963/ijcai.2026/314)
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/e8a7d4bf-c624-42ca-8a54-9cc75681396d" width="88%" alt="PEIT framework overview" />
+  <img src="https://github.com/user-attachments/assets/e8a7d4bf-c624-42ca-8a54-9cc75681396d" width="92%" alt="PEIT framework: PEIT-GEN aligns structure, property, and text; PEIT-LLM is instruction-tuned for multi-task generation." />
 </p>
 
 ---
 
-## Repository layout
+## Pipeline
 
-| Path | Purpose |
-|------|---------|
-| `PEIT-GEN/` | **Main code** — pretrain, inference, `dataset.py`, `normalize.pkl`, configs |
-| `PEIT-LLM/` | LoRA SFT / predict YAMLs for PEIT-LLM |
-| `Template_Generation/` | Downstream templates (caption, property, multi-constraint, …) |
-| `Data/` | Example and auxiliary datasets |
+<p align="center">
+  <code>SMILES</code> &nbsp;+&nbsp; <code>description</code> &nbsp;+&nbsp; <code>53 RDKit properties</code>
+  &nbsp;→&nbsp; <b>PEIT-GEN</b>
+  &nbsp;→&nbsp; instruction data
+  &nbsp;→&nbsp; <b>PEIT-LLM</b>
+</p>
 
-<details>
-<summary><b>PEIT-GEN/ tree (click to expand)</b></summary>
+| Task | What the model does |
+| --- | --- |
+| **Molecule captioning** | SMILES → natural-language description |
+| **Text-based generation** | Description → molecule |
+| **Property prediction** | Molecule → property |
+| **Multi-constraint generation** | Several property constraints → molecule |
 
-```text
-PEIT-GEN/
-├── PEIT_GEN_Pretrain.py    # Lightning pre-training entry
-├── PEIT_GEN.py             # Gen model
-├── calc_property.py        # 53-dim RDKit descriptors
-├── dataset.py
-├── d_Smiles2Des.py         # SMILES → description
-├── d_smiles2pv.py          # SMILES → predicted PV
-├── config_bert*.json
-├── vocab_bpe_300.txt
-├── property_name.txt
-└── normalize.pkl
-```
-
-</details>
-
-> Run PEIT-GEN training and inference with **`cd PEIT-GEN`** so imports and relative paths resolve. Root-level `d_Smiles2Des.py` / `d_smiles2pv.py` mirror the same layout when run from `PEIT-GEN/`.
+PEIT-GEN is pretrained to align the three modalities (contrastive + MLM / fusion; `PEIT-GEN/PEIT_GEN.py`). PEIT-LLM instruction-tunes an open LLM, e.g. LLaMA 3.1, with the synthesized data (`PEIT-LLM/`, via [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)).
 
 ---
 
-## Installation
+## Resources
+
+| | Get it |
+| --- | --- |
+| **Paper** | [Proceedings](https://www.ijcai.org/proceedings/2026/314) · [DOI 10.24963/ijcai.2026/314](https://doi.org/10.24963/ijcai.2026/314) · [arXiv:2412.18084](https://arxiv.org/abs/2412.18084) |
+| **Checkpoints** | [PEIT-LLM on Hugging Face](https://huggingface.co/ccsalong/PEIT-LLM-LLaMa3.1-8B/tree/main) · [PEIT-GEN on ModelScope](https://www.modelscope.cn/models/wangcaiheahuang/PEIT-GEN) |
+| **Instruction data** | [Baidu Pan](https://pan.baidu.com/s/1VcFvrVHmjBZpL2L_QWt9TQ?pwd=vvts) · code `vvts` |
+
+---
+
+## Quickstart
 
 ```bash
 git clone https://github.com/chenlong164/PEIT.git && cd PEIT
 pip install -r requirements.txt
 ```
 
-| Step | Notes |
-|------|--------|
-| **PEIT-LLM** | Install [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) (`llamafactory-cli`) in the same env. |
-| **RDKit** | If `pip` fails: `conda install -c conda-forge rdkit` |
+Pinned in `requirements.txt`: PyTorch 1.13.1, Lightning 2.0.3, Transformers 4.30.1, RDKit 2023.3.1.
 
----
+| Extra | Command |
+| --- | --- |
+| PEIT-LLM | Install [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) so `llamafactory-cli` is on `PATH`. |
+| RDKit fallback | `conda install -c conda-forge rdkit` |
 
-## Usage
-
-### ① Pretrain PEIT-GEN
+Train and infer **from `PEIT-GEN/`** so `PEIT_GEN`, `dataset`, `normalize.pkl`, and the BERT configs resolve.
 
 ```bash
+# 1. Pretrain PEIT-GEN  (CSV columns: SMILES, description)
 cd PEIT-GEN
 python PEIT_GEN_Pretrain.py \
   --data_path ./data/SMILES_Des.csv \
   --output_dir ./Pretrain \
   --vocab_filename ./vocab_bpe_300.txt
-```
 
-CSV columns: **`SMILES`**, **`description`**. Properties are computed from SMILES and normalized with `normalize.pkl`. Hyperparameters: `pretrain_config` in `PEIT_GEN_Pretrain.py`.
-
-| Flag | Description |
-|------|-------------|
-| `--data_path` | Training CSV |
-| `--output_dir` | Checkpoint directory |
-| `--vocab_filename` | SMILES BPE vocab |
-| `--checkpoint` | Resume from `.ckpt` |
-| `--seed` | Default `42` |
-
-### ② Fine-tune PEIT-LLM
-
-```bash
-cd PEIT-LLM
+# 2. Instruction-tune PEIT-LLM
+cd ../PEIT-LLM
 llamafactory-cli train llama3_lora_sft.yaml
 ```
 
-Set `model_name_or_path`, `dataset` / `dataset_dir`, and `output_dir` in the YAML. Details: `PEIT-LLM/README.md`.
+Set `model_name_or_path`, `dataset` / `dataset_dir`, and `output_dir` in the YAML. Dataset registration is described in `PEIT-LLM/README.md`. Hyperparameters for pretraining live in `pretrain_config` inside `PEIT_GEN_Pretrain.py`.
 
-### ③ Inference & downstream
+| Flag | Meaning |
+| --- | --- |
+| `--data_path` | Training CSV |
+| `--output_dir` | Lightning checkpoint directory |
+| `--vocab_filename` | SMILES BPE vocabulary |
+| `--checkpoint` | Optional `.ckpt` to resume |
+| `--seed` | Default `42` |
 
-| Task | Command |
-|------|---------|
-| **53-d properties** | `cd PEIT-GEN && python calc_property.py` |
-| **SMILES → description** | `python d_Smiles2Des.py` with `--checkpoint`, `--input_file`, `--vocab_filename` |
-| **SMILES → PV** | `python d_smiles2pv.py` with checkpoint + CSV |
-| **Templates** | e.g. `Template_Generation/Text-based Molecule Generation/Caption_oriented.py` |
+<details>
+<summary><b>Inference, properties, and downstream templates</b></summary>
 
-**Example — SMILES → description:**
+<br>
+
+| Task | From `PEIT-GEN/` |
+| --- | --- |
+| 53-d RDKit vector | `python calc_property.py` — `calculate_property(smiles)` follows `property_name.txt` |
+| SMILES → description | `python d_Smiles2Des.py` — writes `smiles_description.csv` |
+| SMILES → predicted PV | `python d_smiles2pv.py` |
+| Templates | `Template_Generation/` (caption, property, text-based, multi-constraint) |
+
+**SMILES → description**
 
 ```bash
 cd PEIT-GEN
@@ -140,7 +131,7 @@ python d_Smiles2Des.py \
   --stochastic False
 ```
 
-**Example — SMILES → predicted property vector:**
+**SMILES → predicted property vector**
 
 ```bash
 cd PEIT-GEN
@@ -151,20 +142,54 @@ python d_smiles2pv.py \
   --device cuda
 ```
 
-`d_Smiles2Des.py` writes `smiles_description.csv` by default.
+**Example template**
+
+```bash
+python "Template_Generation/Text-based Molecule Generation/Caption_oriented.py"
+```
+
+**`PEIT-GEN/dataset.py`**
+
+| Class | Input | Used by |
+| --- | --- | --- |
+| `SMILESDataset_pretrain` | `.txt`, one SMILES per line | SMILES-only pretrain |
+| `SMILESDataset` | CSV `SMILES` | SMILES-only batches |
+| `SMILESProCSV` | CSV `SMILES` | `d_Smiles2Des.py`, `d_smiles2pv.py` |
+| `SMILESDataset_pretrain1` | `SMILES`, `description` | Mixed SMILES–text |
+| `SMILESDescriptionProperties` | `SMILES`, `description` | `PEIT_GEN_Pretrain.py` |
+
+Property-vector loaders read `normalize.pkl` (same 53 dimensions as `calc_property.py`). Root copies of `d_Smiles2Des.py` and `d_smiles2pv.py` expect the same files and should be run from `PEIT-GEN/`.
+
+</details>
+
+---
+
+## Repository
+
+| Path | Role |
+| --- | --- |
+| [`PEIT-GEN/`](PEIT-GEN) | Pretraining, inference, `normalize.pkl`, configs |
+| [`PEIT-LLM/`](PEIT-LLM) | LLaMA-Factory LoRA SFT / predict YAMLs |
+| [`Template_Generation/`](Template_Generation) | Downstream task scripts |
+| [`Data/`](Data) | Example and auxiliary tables |
+| [`requirements.txt`](requirements.txt) | Pinned Python dependencies |
 
 <details>
-<summary><b><code>dataset.py</code> loaders</b></summary>
+<summary><b>Inside <code>PEIT-GEN/</code></b></summary>
 
-| Class | Input | Use |
-|-------|--------|-----|
-| `SMILESDataset_pretrain` | `.txt` (one SMILES / line) | Pretrain-style SMILES |
-| `SMILESDataset` | CSV `SMILES` | SMILES-only |
-| `SMILESProCSV` | CSV `SMILES` | `d_Smiles2Des.py`, `d_smiles2pv.py` |
-| `SMILESDataset_pretrain1` | `SMILES` + `description` | Mixed SMILES–text |
-| `SMILESDescriptionProperties` | `SMILES` + `description` | `PEIT_GEN_Pretrain.py` |
-
-PV loaders use `normalize.pkl` (same 53 properties as `calc_property.py`).
+```text
+PEIT-GEN/
+├── PEIT_GEN_Pretrain.py    # Lightning entry
+├── PEIT_GEN.py             # Gen
+├── calc_property.py
+├── dataset.py
+├── d_Smiles2Des.py
+├── d_smiles2pv.py
+├── config_bert*.json
+├── vocab_bpe_300.txt
+├── property_name.txt
+└── normalize.pkl
+```
 
 </details>
 
@@ -172,7 +197,7 @@ PV loaders use `normalize.pkl` (same 53 properties as `calc_property.py`).
 
 ## Citation
 
-Please cite the **IJCAI-ECAI 2026** proceedings version ([paper](https://www.ijcai.org/proceedings/2026/314), [DOI](https://doi.org/10.24963/ijcai.2026/314)):
+Cite the proceedings version. BibTeX below is copied from the [official IJCAI record](https://www.ijcai.org/proceedings/2026/bibtex/314).
 
 ```bibtex
 @inproceedings{ijcai2026p314,
@@ -191,6 +216,4 @@ Please cite the **IJCAI-ECAI 2026** proceedings version ([paper](https://www.ijc
 }
 ```
 
-*BibTeX source:* [ijcai.org/proceedings/2026/bibtex/314](https://www.ijcai.org/proceedings/2026/bibtex/314)
-
-**Preprint (optional):** [arXiv:2412.18084](https://arxiv.org/abs/2412.18084)
+Preprint (optional): [arXiv:2412.18084](https://arxiv.org/abs/2412.18084).
