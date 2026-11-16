@@ -9,7 +9,6 @@ Official PyTorch implementation of **PEIT** — multimodal molecular generation 
 <br>
 
 <a href="https://www.ijcai.org/proceedings/2026/314"><img src="https://img.shields.io/badge/IJCAI--ECAI%202026-Accepted-2ea44f?style=for-the-badge" alt="IJCAI-ECAI 2026 Accepted"></a>
-<a href="https://www.ijcai.org/proceedings/2026/314"><img src="https://img.shields.io/badge/Paper-IJCAI--26%20Proceedings-0052cc?style=for-the-badge" alt="IJCAI Proceedings"></a>
 <a href="https://doi.org/10.24963/ijcai.2026/314"><img src="https://img.shields.io/badge/DOI-10.24963%2Fijcai.2026%2F314-007ec6?style=for-the-badge" alt="DOI"></a>
 
 <br>
